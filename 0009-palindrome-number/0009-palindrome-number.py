@@ -4,9 +4,10 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        a = str(x)
-        len_a = len(a)
-        for x in range(len_a):
-            if a[x] != a[-(x+1)]:
+        strX = str(x)
+        for i in range(len(strX)//2):
+            if strX[i] == strX[len(strX)-(1+i)]:
+                continue
+            else:
                 return False
         return True
