@@ -13,11 +13,11 @@ class Solution(object):
             'D':500,
             'M':1000
         }
-        result = 0
-        for i in range(len(s)-1):
-            if (roman_To_Integer.get(s[i]) < roman_To_Integer.get(s[i+1])):
-                result -= roman_To_Integer.get(s[i])
-            else:
-                result += roman_To_Integer.get(s[i])
-        result += roman_To_Integer.get(s[len(s)-1])
-        return result
+        s = s.replace('IV', 'IIII') \
+             .replace('IX', 'VIIII') \
+             .replace('XL', 'XXXX') \
+             .replace('XC', 'LXXXX') \
+             .replace('CD', 'CCCC') \
+             .replace('CM', 'DCCCC')
+        
+        return sum(map(roman_To_Integer.get,s))
